@@ -7,7 +7,7 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: <FaGithub className="w-5 h-5" />,
-      href: "https://github.com/yourusername",
+      href: "https://github.com/khanr7433",
       label: "GitHub",
     },
     {
@@ -37,7 +37,7 @@ const Footer = () => {
 
           <div className="text-center">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <nav className="flex flex-col space-y-2">
+            <nav className="grid grid-cols-1 lg:flex lg:items-center lg:justify-center gap-2">
               {["About", "Education", "Projects", "Skills", "Tools"].map(
                 (link) => (
                   <a

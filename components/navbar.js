@@ -113,9 +113,8 @@ export default function Navbar() {
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/khanr7433"
               target="_blank"
-              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="GitHub Profile"
             >
@@ -124,7 +123,6 @@ export default function Navbar() {
             <a
               href="https://linkedin.com/in/yourusername"
               target="_blank"
-              rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="LinkedIn Profile"
             >

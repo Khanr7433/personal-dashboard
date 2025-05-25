@@ -1,4 +1,5 @@
 "use client";
+
 import { profile } from "../data/profile";
 import { education } from "../data/education";
 import { projects } from "../data/projects";
