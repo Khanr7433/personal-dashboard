@@ -22,23 +22,13 @@ export const tools = {
         proficiency: "Advanced",
       },
     ],
-    buildTools: [
-      {
-        name: "Webpack",
-        proficiency: "Intermediate",
-      },
-      {
-        name: "npm",
-        proficiency: "Advanced",
-      },
-      {
-        name: "XAMPP",
-        proficiency: "Intermediate",
-      },
-    ],
     apiTools: [
       {
         name: "Postman",
+        proficiency: "Advanced",
+      },
+      {
+        name: "Thunder Client",
         proficiency: "Intermediate",
       },
     ],
@@ -47,6 +37,14 @@ export const tools = {
     ui: [
       {
         name: "Figma",
+        proficiency: "Intermediate",
+      },
+      {
+        name: "Canva",
+        proficiency: "Intermediate",
+      },
+      {
+        name: "Adobe Photoshop",
         proficiency: "Intermediate",
       },
     ],
@@ -66,15 +64,15 @@ export const tools = {
   productivity: {
     office: [
       {
-        name: "Microsoft Word",
+        name: "MS Word",
         proficiency: "Advanced",
       },
       {
-        name: "Microsoft Excel",
+        name: "MS Excel",
         proficiency: "Advanced",
       },
       {
-        name: "Microsoft PowerPoint",
+        name: "MS PowerPoint",
         proficiency: "Advanced",
       },
     ],

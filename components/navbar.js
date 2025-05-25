@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
@@ -24,7 +24,6 @@ export default function Navbar() {
       const sections = ["about", "education", "projects", "skills", "tools"];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-      // Update navbar background opacity based on scroll
       setHasScrolled(window.scrollY > 20);
 
       for (const section of sections) {
@@ -115,23 +114,30 @@ export default function Navbar() {
             <a
               href="https://github.com/khanr7433"
               target="_blank"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors duration-300 hover-lift"
               aria-label="GitHub Profile"
             >
               <FaGithub className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/rashid-khan-820628266"
               target="_blank"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors duration-300 hover-lift"
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin className="w-6 h-6" />
             </a>
+            <a
+              href="mailto:khan.rashid.7433@gmail.com"
+              target="_blank"
+              className="text-gray-400 hover:text-white transition-colors duration-300 hover-lift"
+              aria-label="Email"
+            >
+              <FaEnvelope className="w-6 h-6" />
+            </a>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isMenuOpen
@@ -157,7 +163,7 @@ export default function Navbar() {
             ))}
             <div className="flex items-center space-x-4 pt-2 px-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/khanr7433"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -166,13 +172,22 @@ export default function Navbar() {
                 <FaGithub className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/rashid-khan-820628266"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="LinkedIn Profile"
               >
                 <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="mailto:khan.rashid.7433@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Email"
+              >
+                <FaEnvelope className="w-6 h-6" />
               </a>
             </div>
           </div>

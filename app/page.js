@@ -41,29 +41,6 @@ export default function Home() {
                 className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
               >
                 <h4 className="text-xl font-semibold mb-4 text-primary">
-                  Location
-                </h4>
-                <p className="text-gray-300">
-                  {profile.basics.location.city},{" "}
-                  {profile.basics.location.country}
-                </p>
-                <p className="text-gray-400 mt-2">
-                  <span className="inline-flex items-center gap-2">
-                    <span
-                      className={`w-2 h-2 rounded-full ${profile.basics.location.available_for_relocation ? "bg-success animate-pulse" : "bg-gray-500"}`}
-                    />
-                    {profile.basics.location.available_for_relocation
-                      ? "Available for relocation"
-                      : "Not available for relocation"}
-                  </span>
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
-              >
-                <h4 className="text-xl font-semibold mb-4 text-primary">
                   Contact
                 </h4>
                 <p className="text-gray-300 hover:text-primary transition-colors">
@@ -72,12 +49,28 @@ export default function Home() {
                   </a>
                 </p>
                 <p className="text-gray-300 mt-2">
-                  {profile.basics.contact.phone}
+                  <a href={`tel:${profile.basics.contact.phone}`}>
+                    {profile.basics.contact.phone}
+                  </a>
+                </p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
+              >
+                <h4 className="text-xl font-semibold mb-4 text-primary">
+                  Location
+                </h4>
+                <p className="text-gray-300">
+                  {profile.basics.location.city},{" "}
+                  {profile.basics.location.state},{" "}
+                  {profile.basics.location.country},{" "}
+                  {profile.basics.location.postalCode}
                 </p>
               </motion.div>
             </div>
 
-            {/* Interests */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
@@ -97,7 +90,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Availability */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50"
@@ -283,7 +275,7 @@ export default function Home() {
                           key={idx}
                           className="flex items-start gap-3 text-gray-300 group"
                         >
-                          <span className="w-2 h-2 mt-2 rounded-full bg-primary-light group-hover:bg-primary transition-colors" />
+                          <span className="w-2 h-2 mt-2 rounded-full bg-white transition-colors opacity-70" />
                           {highlight}
                         </li>
                       ))}
@@ -362,7 +354,6 @@ export default function Home() {
                 Technical Skills
               </motion.h3>
 
-              {/* Programming Skills */}
               <div className="space-y-8">
                 {skills.technicalSkills.programming.map((category, idx) => (
                   <motion.div
@@ -385,47 +376,28 @@ export default function Home() {
                             key={skillIdx}
                             className="bg-gray-700/50 backdrop-blur-sm rounded-lg p-4 border border-gray-600/50 hover:border-primary/30 transition-colors"
                           >
-                            <div className="flex justify-between items-start mb-3">
-                              <span className="text-gray-200 font-medium">
-                                {skill.name}
-                              </span>
+                            <div className="flex justify-between items-center mb-3">
+                              <div className="flex flex-col">
+                                <span className="text-gray-200 font-medium">
+                                  {skill.name}
+                                </span>
+                                <span className="text-gray-400 text-sm">
+                                  {skill.yearsOfExperience}{" "}
+                                  {skill.yearsOfExperience === 1
+                                    ? "year"
+                                    : "years"}
+                                </span>
+                              </div>
                               <span
                                 className={`text-sm px-3 py-1 rounded-full ${
                                   skill.proficiency === "Advanced"
-                                    ? "bg-success/10 text-success border border-success/20"
+                                    ? "bg-success text-success border border-success"
                                     : skill.proficiency === "Intermediate"
-                                      ? "bg-primary/10 text-primary-light border border-primary/20"
-                                      : "bg-gray-600/30 text-gray-300 border border-gray-500/30"
+                                      ? "bg-primary text-primary-light border border-primary"
+                                      : "bg-primary text-primary-light border border-primary"
                                 }`}
                               >
                                 {skill.proficiency}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="flex-1 h-1.5 bg-gray-600/50 rounded-full overflow-hidden">
-                                <div
-                                  className={`h-full rounded-full ${
-                                    skill.proficiency === "Advanced"
-                                      ? "bg-success"
-                                      : skill.proficiency === "Intermediate"
-                                        ? "bg-primary"
-                                        : "bg-gray-500"
-                                  }`}
-                                  style={{
-                                    width:
-                                      skill.proficiency === "Advanced"
-                                        ? "90%"
-                                        : skill.proficiency === "Intermediate"
-                                          ? "60%"
-                                          : "30%",
-                                  }}
-                                />
-                              </div>
-                              <span className="text-gray-400 text-sm">
-                                {skill.yearsOfExperience}{" "}
-                                {skill.yearsOfExperience === 1
-                                  ? "year"
-                                  : "years"}
                               </span>
                             </div>
                           </div>
@@ -436,7 +408,6 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Databases */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -457,10 +428,16 @@ export default function Home() {
                         key={idx}
                         className="bg-gray-700/50 backdrop-blur-sm rounded-lg p-4 border border-gray-600/50 hover:border-primary/30 transition-colors"
                       >
-                        <div className="flex justify-between items-start mb-3">
-                          <span className="text-gray-200 font-medium">
-                            {db.name}
-                          </span>
+                        <div className="flex justify-between items-center mb-3">
+                          <div className="flex flex-col">
+                            <span className="text-gray-200 font-medium">
+                              {db.name}
+                            </span>
+                            <span className="text-gray-400 text-sm">
+                              {db.yearsOfExperience}{" "}
+                              {db.yearsOfExperience === 1 ? "year" : "years"}
+                            </span>
+                          </div>
                           <span
                             className={`text-sm px-3 py-1 rounded-full ${
                               db.proficiency === "Advanced"
@@ -471,32 +448,12 @@ export default function Home() {
                             {db.proficiency}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <div className="flex-1 h-1.5 bg-gray-600/50 rounded-full overflow-hidden">
-                            <div
-                              className={`h-full rounded-full ${
-                                db.proficiency === "Advanced"
-                                  ? "bg-success"
-                                  : "bg-primary"
-                              }`}
-                              style={{
-                                width:
-                                  db.proficiency === "Advanced" ? "90%" : "60%",
-                              }}
-                            />
-                          </div>
-                          <span className="text-gray-400 text-sm">
-                            {db.yearsOfExperience}{" "}
-                            {db.yearsOfExperience === 1 ? "year" : "years"}
-                          </span>
-                        </div>
                       </div>
                     ))}
                   </div>
                 </motion.div>
               </motion.div>
 
-              {/* Operating Systems */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -517,45 +474,26 @@ export default function Home() {
                         key={idx}
                         className="bg-gray-700/50 backdrop-blur-sm rounded-lg p-4 border border-gray-600/50 hover:border-primary/30 transition-colors"
                       >
-                        <div className="flex justify-between items-start mb-3">
-                          <span className="text-gray-200 font-medium">
-                            {os.name}
-                          </span>
+                        <div className="flex justify-between items-center mb-3">
+                          <div className="flex flex-col">
+                            <span className="text-gray-200 font-medium">
+                              {os.name}
+                            </span>
+                            <span className="text-gray-400 text-sm">
+                              {os.yearsOfExperience}{" "}
+                              {os.yearsOfExperience === 1 ? "year" : "years"}
+                            </span>
+                          </div>
                           <span
                             className={`text-sm px-3 py-1 rounded-full ${
                               os.proficiency === "Advanced"
                                 ? "bg-success/10 text-success border border-success/20"
                                 : os.proficiency === "Intermediate"
                                   ? "bg-primary/10 text-primary-light border border-primary/20"
-                                  : "bg-gray-600/30 text-gray-300 border border-gray-500/30"
+                                  : "bg-primary/10 text-primary-light border border-primary/20"
                             }`}
                           >
                             {os.proficiency}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="flex-1 h-1.5 bg-gray-600/50 rounded-full overflow-hidden">
-                            <div
-                              className={`h-full rounded-full ${
-                                os.proficiency === "Advanced"
-                                  ? "bg-success"
-                                  : os.proficiency === "Intermediate"
-                                    ? "bg-primary"
-                                    : "bg-gray-500"
-                              }`}
-                              style={{
-                                width:
-                                  os.proficiency === "Advanced"
-                                    ? "90%"
-                                    : os.proficiency === "Intermediate"
-                                      ? "60%"
-                                      : "30%",
-                              }}
-                            />
-                          </div>
-                          <span className="text-gray-400 text-sm">
-                            {os.yearsOfExperience}{" "}
-                            {os.yearsOfExperience === 1 ? "year" : "years"}
                           </span>
                         </div>
                       </div>
@@ -565,7 +503,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Soft Skills */}
             <div>
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
@@ -600,7 +537,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Languages */}
             <div>
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
@@ -662,7 +598,6 @@ export default function Home() {
           </motion.h2>
 
           <div className="space-y-12">
-            {/* Development Tools */}
             <div>
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
@@ -674,7 +609,6 @@ export default function Home() {
                 Development
               </motion.h3>
 
-              {/* IDEs */}
               <div className="grid gap-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -731,7 +665,6 @@ export default function Home() {
                   </motion.div>
                 </motion.div>
 
-                {/* Version Control */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -771,47 +704,6 @@ export default function Home() {
                   </motion.div>
                 </motion.div>
 
-                {/* Build Tools */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="card bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-primary/50 transition-colors"
-                  >
-                    <h4 className="text-xl font-medium text-primary-light mb-6">
-                      Build & Development Tools
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {tools.development.buildTools.map((tool, idx) => (
-                        <div
-                          key={idx}
-                          className="bg-gray-700/50 backdrop-blur-sm rounded-lg p-4 border border-gray-600/50 hover:border-primary/30 transition-colors group"
-                        >
-                          <div className="flex justify-between items-center">
-                            <span className="text-gray-200 font-medium group-hover:text-primary-light transition-colors">
-                              {tool.name}
-                            </span>
-                            <span
-                              className={`text-sm px-3 py-1 rounded-full ${
-                                tool.proficiency === "Advanced"
-                                  ? "bg-success/10 text-success border border-success/20"
-                                  : "bg-primary/10 text-primary-light border border-primary/20"
-                              }`}
-                            >
-                              {tool.proficiency}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                </motion.div>
-
-                {/* API Tools */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

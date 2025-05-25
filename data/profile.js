@@ -6,7 +6,9 @@ export const profile = {
       "Passionate developer with expertise in modern web technologies and a focus on creating efficient, scalable applications.",
     location: {
       city: "Pune",
+      state: "Maharashtra",
       country: "India",
+      postalCode: "411048",
       available_for_relocation: true,
     },
     contact: {

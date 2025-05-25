@@ -107,8 +107,8 @@ export const skills = {
       },
       {
         name: "Linux",
-        proficiency: "Basic",
-        yearsOfExperience: 1,
+        proficiency: "Intermediate",
+        yearsOfExperience: 2,
       },
     ],
   },
@@ -123,7 +123,7 @@ export const skills = {
   languages: [
     {
       name: "English",
-      proficiency: "Native",
+      proficiency: "Intermediate",
     },
     {
       name: "Urdu",
